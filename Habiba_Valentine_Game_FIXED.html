@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Valentine Game</title>
+<style>
+body{
+  margin:0;
+  font-family: 'Comic Sans MS','Trebuchet MS',system-ui;
+  background: linear-gradient(135deg,#ffb6c1,#ff69b4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.card{
+  background:#fff0f6;
+  padding:26px;
+  border-radius:26px;
+  width:90%;
+  max-width:420px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(255,105,180,.35);
+}
+.hidden{display:none;}
+button{
+  background:#ff69b4;
+  color:white;
+  border:none;
+  border-radius:999px;
+  padding:14px 24px;
+  font-size:16px;
+  margin-top:14px;
+}
+.heart{
+  font-size:56px;
+}
+.meter{
+  height:14px;
+  background:#ffd6e8;
+  border-radius:999px;
+  overflow:hidden;
+  margin:16px 0;
+}
+.fill{
+  height:100%;
+  width:0%;
+  background:#ff1493;
+}
+</style>
+</head>
+<body>
+
+<div class="card" id="start">
+  <h1>Hi Habiba 💕</h1>
+  <p>It’s Hossin 😌<br>I made you a little game.</p>
+  <button onclick="goGame()">Start 💖</button>
+</div>
+
+<div class="card hidden" id="game">
+  <h2>Tap the heart 💗</h2>
+  <div class="heart" onclick="tap()">💗</div>
+  <div class="meter"><div class="fill" id="fill"></div></div>
+  <p id="lvl">Love level: 0%</p>
+</div>
+
+<div class="card hidden" id="ask">
+  <h2>Habiba 💘</h2>
+  <p>Will you be my Valentine?</p>
+  <button onclick="yes()">YES 💖</button><br>
+  <button onclick="yes()">Of course YES 😘</button>
+</div>
+
+<div class="card hidden" id="end">
+  <h2>YAYYY 🥹💗</h2>
+  <p><strong>I love you so much pookie 💞</strong></p>
+  <p>Forever yours,<br>Hossin 💋</p>
+  <button onclick="song()">Play our song 🎶</button>
+</div>
+
+<script>
+let love=0;
+function goGame(){
+  document.getElementById('start').classList.add('hidden');
+  document.getElementById('game').classList.remove('hidden');
+}
+function tap(){
+  love+=10;
+  document.getElementById('fill').style.width=love+'%';
+  document.getElementById('lvl').innerText='Love level: '+love+'%';
+  if(love>=100){
+    document.getElementById('game').classList.add('hidden');
+    document.getElementById('ask').classList.remove('hidden');
+  }
+}
+function yes(){
+  document.getElementById('ask').classList.add('hidden');
+  document.getElementById('end').classList.remove('hidden');
+}
+function song(){
+  window.open('https://www.youtube.com/results?search_query=heseeny+tul8te','_blank');
+}
+</script>
+
+</body>
+</html>
